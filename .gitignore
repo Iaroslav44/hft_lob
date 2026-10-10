@@ -1,0 +1,4 @@
+# Local build trees and generated Python bytecode.
+/build*/
+__pycache__/
+*.py[cod]

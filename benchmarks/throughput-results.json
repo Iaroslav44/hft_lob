@@ -1,0 +1,209 @@
+{
+  "cpu_pair": [
+    2,
+    4
+  ],
+  "runs_per_process": 21,
+  "messages_per_run": 999999,
+  "samples_Mps": {
+    "before-q20-b1": [
+      76.87,
+      64.23,
+      61.444,
+      62.938,
+      117.717
+    ],
+    "before-q16-b1": [
+      88.555,
+      196.514,
+      93.027,
+      169.756,
+      181.279
+    ],
+    "wide-q16-b1": [
+      185.334,
+      185.794,
+      154.104,
+      96.86,
+      101.726
+    ],
+    "parser-q16-b1": [
+      171.351,
+      88.772,
+      147.356,
+      171.697,
+      175.007
+    ],
+    "current-q20-b1": [
+      83.836,
+      64.362,
+      62.938,
+      73.972,
+      75.607
+    ],
+    "current-q16-b1": [
+      157.663,
+      197.582,
+      122.974,
+      188.3,
+      95.126
+    ],
+    "current-q14-b1": [
+      171.286,
+      128.381,
+      189.091,
+      189.378,
+      155.539
+    ],
+    "current-q16-b8": [
+      236.979,
+      209.064,
+      187.034,
+      246.546,
+      219.983
+    ],
+    "current-q16-b32": [
+      213.108,
+      221.669,
+      204.583,
+      217.601,
+      201.096
+    ],
+    "current-q14-b32": [
+      243.789,
+      225.145,
+      229.867,
+      220.748,
+      216.265
+    ]
+  },
+  "date": "2026-10-10",
+  "environment": "Ubuntu WSL2 x86-64, GCC 11.4, -O3 -march=native -flto -fno-plt, CPU 2/4",
+  "workload": "Identical materialised ITCH tape: 999999 adds, 256 levels, both sides, varying quantities; 21 measured runs after one warm-up per process",
+  "publication_policy": "b1 means immediate single-message publication; b8 and b32 use explicit producer batches",
+  "variant_key": {
+    "before": "Original decoder and book, same materialised-wire harness; original immediate queue operation for b1, new batch API only for explicit b32 ablation",
+    "wide": "Only the timestamp load widened",
+    "parser": "Wide timestamp and aggregate output; original book",
+    "current": "Wide timestamp, aggregate output and widened book price-offset check",
+    "q20": "1048576 slots / 32 MiB",
+    "q16": "65536 slots / 2 MiB",
+    "q14": "16384 slots / 512 KiB"
+  },
+  "process_repeats": 5,
+  "random_seed": 20261010,
+  "median_Mps": {
+    "before-q20-b1": 64.23,
+    "before-q16-b1": 169.756,
+    "wide-q16-b1": 154.104,
+    "parser-q16-b1": 171.351,
+    "current-q20-b1": 73.972,
+    "current-q16-b1": 157.663,
+    "current-q14-b1": 171.286,
+    "current-q16-b8": 219.983,
+    "current-q16-b32": 213.108,
+    "current-q14-b32": 225.145
+  },
+  "status": "Exploratory sweep; the aggregate-output decoder was rejected and is not shipped. See final_comparison for the selected implementation.",
+  "final_comparison": {
+    "cpu_pair": [
+      2,
+      4
+    ],
+    "runs_per_process": 21,
+    "messages_per_run": 999999,
+    "process_repeats": 7,
+    "seed": 20261011,
+    "samples_Mps": {
+      "before-q20-b1": [
+        71.292,
+        128.18,
+        70.661,
+        92.233,
+        69.626,
+        63.909,
+        92.104
+      ],
+      "before-q16-b1": [
+        171.046,
+        95.614,
+        174.89,
+        120.824,
+        177.908,
+        199.933,
+        139.91
+      ],
+      "before-q16-b32": [
+        219.52,
+        225.33,
+        230.199,
+        236.537,
+        199.213,
+        213.921,
+        225.167
+      ],
+      "final-q16-b1": [
+        187.543,
+        88.249,
+        193.826,
+        183.776,
+        192.602,
+        168.62,
+        202.792
+      ],
+      "final-q16-b8": [
+        244.677,
+        214.994,
+        213.918,
+        213.871,
+        218.101,
+        216.832,
+        249.856
+      ],
+      "final-q16-b32": [
+        209.547,
+        218.633,
+        229.637,
+        220.237,
+        220.101,
+        231.861,
+        224.316
+      ],
+      "final-q14-b1": [
+        203.521,
+        65.559,
+        189.801,
+        169.392,
+        192.646,
+        194.118,
+        140.311
+      ],
+      "final-q14-b32": [
+        230.081,
+        231.853,
+        227.772,
+        243.251,
+        222.928,
+        235.097,
+        223.891
+      ]
+    },
+    "median_Mps": {
+      "before-q20-b1": 71.292,
+      "before-q16-b1": 171.046,
+      "before-q16-b32": 225.167,
+      "final-q16-b1": 187.543,
+      "final-q16-b8": 216.832,
+      "final-q16-b32": 220.237,
+      "final-q14-b1": 189.801,
+      "final-q14-b32": 230.081
+    },
+    "binary_sha256": {
+      "before-q20": "238614e25e93fda9223c5f6797a3c2d4c44f7685569f984aa00efa519fa63918",
+      "before-q16": "c688d0263c3a064e1ad86652fe74edf3ca149e2c66e874afada87ddbe7b0d701",
+      "final-q16": "4e66808729941ca8e613975e9c414831f347b880826a1e8e6fc3f7dd54a711c0",
+      "final-q14": "53ab97072082af98c30df0b594c43723a3a304d0951958638078677fa2c12b95"
+    },
+    "selected_implementation": "Scalar decoder with one widened timestamp load, 64-bit price-window check, default65536-slot ring; batch1 default, batch32 opt-in"
+  }
+}

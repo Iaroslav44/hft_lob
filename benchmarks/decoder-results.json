@@ -1,0 +1,512 @@
+[
+  {
+    "trial": 0,
+    "variant": "aggregate",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      536.643341,
+      511.638443,
+      470.48187,
+      436.518029,
+      472.440065,
+      532.205961,
+      561.883559
+    ],
+    "median": 511.638443,
+    "output": "variant=1 round=0 frames=4096 passes=1024 Mmsg/s=536.643341 checksum=13938605056126527488\nvariant=1 round=1 frames=4096 passes=1024 Mmsg/s=511.638443 checksum=13938605056126527488\nvariant=1 round=2 frames=4096 passes=1024 Mmsg/s=470.481870 checksum=13938605056126527488\nvariant=1 round=3 frames=4096 passes=1024 Mmsg/s=436.518029 checksum=13938605056126527488\nvariant=1 round=4 frames=4096 passes=1024 Mmsg/s=472.440065 checksum=13938605056126527488\nvariant=1 round=5 frames=4096 passes=1024 Mmsg/s=532.205961 checksum=13938605056126527488\nvariant=1 round=6 frames=4096 passes=1024 Mmsg/s=561.883559 checksum=13938605056126527488\nvariant=1 median_Mmsg/s=511.638443 min=436.518029 max=561.883559\n"
+  },
+  {
+    "trial": 0,
+    "variant": "baseline",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      590.656114,
+      599.353848,
+      616.312465,
+      620.630304,
+      611.733731,
+      640.215307,
+      588.70994
+    ],
+    "median": 611.733731,
+    "output": "variant=0 round=0 frames=4096 passes=1024 Mmsg/s=590.656114 checksum=13938605056126527488\nvariant=0 round=1 frames=4096 passes=1024 Mmsg/s=599.353848 checksum=13938605056126527488\nvariant=0 round=2 frames=4096 passes=1024 Mmsg/s=616.312465 checksum=13938605056126527488\nvariant=0 round=3 frames=4096 passes=1024 Mmsg/s=620.630304 checksum=13938605056126527488\nvariant=0 round=4 frames=4096 passes=1024 Mmsg/s=611.733731 checksum=13938605056126527488\nvariant=0 round=5 frames=4096 passes=1024 Mmsg/s=640.215307 checksum=13938605056126527488\nvariant=0 round=6 frames=4096 passes=1024 Mmsg/s=588.709940 checksum=13938605056126527488\nvariant=0 median_Mmsg/s=611.733731 min=588.709940 max=640.215307\n"
+  },
+  {
+    "trial": 0,
+    "variant": "scalar-wide",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      654.591264,
+      629.56656,
+      586.515375,
+      544.366552,
+      491.913512,
+      488.636017,
+      494.782861
+    ],
+    "median": 544.366552,
+    "output": "variant=2 round=0 frames=4096 passes=1024 Mmsg/s=654.591264 checksum=13938605056126527488\nvariant=2 round=1 frames=4096 passes=1024 Mmsg/s=629.566560 checksum=13938605056126527488\nvariant=2 round=2 frames=4096 passes=1024 Mmsg/s=586.515375 checksum=13938605056126527488\nvariant=2 round=3 frames=4096 passes=1024 Mmsg/s=544.366552 checksum=13938605056126527488\nvariant=2 round=4 frames=4096 passes=1024 Mmsg/s=491.913512 checksum=13938605056126527488\nvariant=2 round=5 frames=4096 passes=1024 Mmsg/s=488.636017 checksum=13938605056126527488\nvariant=2 round=6 frames=4096 passes=1024 Mmsg/s=494.782861 checksum=13938605056126527488\nvariant=2 median_Mmsg/s=544.366552 min=488.636017 max=654.591264\n"
+  },
+  {
+    "trial": 0,
+    "variant": "baseline",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      231.510742,
+      234.809719,
+      245.810755,
+      241.072178,
+      247.325576,
+      246.302507,
+      242.951063
+    ],
+    "median": 242.951063,
+    "output": "variant=0 round=0 frames=1000000 passes=4 Mmsg/s=231.510742 checksum=537302362780349984\nvariant=0 round=1 frames=1000000 passes=4 Mmsg/s=234.809719 checksum=537302362780349984\nvariant=0 round=2 frames=1000000 passes=4 Mmsg/s=245.810755 checksum=537302362780349984\nvariant=0 round=3 frames=1000000 passes=4 Mmsg/s=241.072178 checksum=537302362780349984\nvariant=0 round=4 frames=1000000 passes=4 Mmsg/s=247.325576 checksum=537302362780349984\nvariant=0 round=5 frames=1000000 passes=4 Mmsg/s=246.302507 checksum=537302362780349984\nvariant=0 round=6 frames=1000000 passes=4 Mmsg/s=242.951063 checksum=537302362780349984\nvariant=0 median_Mmsg/s=242.951063 min=231.510742 max=247.325576\n"
+  },
+  {
+    "trial": 0,
+    "variant": "scalar-wide",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      238.381054,
+      250.563643,
+      259.854663,
+      266.378605,
+      265.563463,
+      216.688081,
+      212.642252
+    ],
+    "median": 250.563643,
+    "output": "variant=2 round=0 frames=1000000 passes=4 Mmsg/s=238.381054 checksum=537302362780349984\nvariant=2 round=1 frames=1000000 passes=4 Mmsg/s=250.563643 checksum=537302362780349984\nvariant=2 round=2 frames=1000000 passes=4 Mmsg/s=259.854663 checksum=537302362780349984\nvariant=2 round=3 frames=1000000 passes=4 Mmsg/s=266.378605 checksum=537302362780349984\nvariant=2 round=4 frames=1000000 passes=4 Mmsg/s=265.563463 checksum=537302362780349984\nvariant=2 round=5 frames=1000000 passes=4 Mmsg/s=216.688081 checksum=537302362780349984\nvariant=2 round=6 frames=1000000 passes=4 Mmsg/s=212.642252 checksum=537302362780349984\nvariant=2 median_Mmsg/s=250.563643 min=212.642252 max=266.378605\n"
+  },
+  {
+    "trial": 0,
+    "variant": "aggregate",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      238.859517,
+      213.974275,
+      227.878145,
+      228.65296,
+      206.032646,
+      229.144683,
+      220.141845
+    ],
+    "median": 227.878145,
+    "output": "variant=1 round=0 frames=1000000 passes=4 Mmsg/s=238.859517 checksum=537302362780349984\nvariant=1 round=1 frames=1000000 passes=4 Mmsg/s=213.974275 checksum=537302362780349984\nvariant=1 round=2 frames=1000000 passes=4 Mmsg/s=227.878145 checksum=537302362780349984\nvariant=1 round=3 frames=1000000 passes=4 Mmsg/s=228.652960 checksum=537302362780349984\nvariant=1 round=4 frames=1000000 passes=4 Mmsg/s=206.032646 checksum=537302362780349984\nvariant=1 round=5 frames=1000000 passes=4 Mmsg/s=229.144683 checksum=537302362780349984\nvariant=1 round=6 frames=1000000 passes=4 Mmsg/s=220.141845 checksum=537302362780349984\nvariant=1 median_Mmsg/s=227.878145 min=206.032646 max=238.859517\n"
+  },
+  {
+    "trial": 1,
+    "variant": "aggregate",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      204.683098,
+      218.328348,
+      261.095328,
+      223.332146,
+      219.186417,
+      203.876414,
+      211.657615
+    ],
+    "median": 218.328348,
+    "output": "variant=1 round=0 frames=1000000 passes=4 Mmsg/s=204.683098 checksum=537302362780349984\nvariant=1 round=1 frames=1000000 passes=4 Mmsg/s=218.328348 checksum=537302362780349984\nvariant=1 round=2 frames=1000000 passes=4 Mmsg/s=261.095328 checksum=537302362780349984\nvariant=1 round=3 frames=1000000 passes=4 Mmsg/s=223.332146 checksum=537302362780349984\nvariant=1 round=4 frames=1000000 passes=4 Mmsg/s=219.186417 checksum=537302362780349984\nvariant=1 round=5 frames=1000000 passes=4 Mmsg/s=203.876414 checksum=537302362780349984\nvariant=1 round=6 frames=1000000 passes=4 Mmsg/s=211.657615 checksum=537302362780349984\nvariant=1 median_Mmsg/s=218.328348 min=203.876414 max=261.095328\n"
+  },
+  {
+    "trial": 1,
+    "variant": "scalar-wide",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      215.583589,
+      234.016251,
+      252.660643,
+      259.445587,
+      259.981063,
+      259.220304,
+      260.955839
+    ],
+    "median": 259.220304,
+    "output": "variant=2 round=0 frames=1000000 passes=4 Mmsg/s=215.583589 checksum=537302362780349984\nvariant=2 round=1 frames=1000000 passes=4 Mmsg/s=234.016251 checksum=537302362780349984\nvariant=2 round=2 frames=1000000 passes=4 Mmsg/s=252.660643 checksum=537302362780349984\nvariant=2 round=3 frames=1000000 passes=4 Mmsg/s=259.445587 checksum=537302362780349984\nvariant=2 round=4 frames=1000000 passes=4 Mmsg/s=259.981063 checksum=537302362780349984\nvariant=2 round=5 frames=1000000 passes=4 Mmsg/s=259.220304 checksum=537302362780349984\nvariant=2 round=6 frames=1000000 passes=4 Mmsg/s=260.955839 checksum=537302362780349984\nvariant=2 median_Mmsg/s=259.220304 min=215.583589 max=260.955839\n"
+  },
+  {
+    "trial": 1,
+    "variant": "baseline",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      244.490812,
+      238.707708,
+      231.925993,
+      240.314269,
+      235.778629,
+      231.356565,
+      219.199005
+    ],
+    "median": 235.778629,
+    "output": "variant=0 round=0 frames=1000000 passes=4 Mmsg/s=244.490812 checksum=537302362780349984\nvariant=0 round=1 frames=1000000 passes=4 Mmsg/s=238.707708 checksum=537302362780349984\nvariant=0 round=2 frames=1000000 passes=4 Mmsg/s=231.925993 checksum=537302362780349984\nvariant=0 round=3 frames=1000000 passes=4 Mmsg/s=240.314269 checksum=537302362780349984\nvariant=0 round=4 frames=1000000 passes=4 Mmsg/s=235.778629 checksum=537302362780349984\nvariant=0 round=5 frames=1000000 passes=4 Mmsg/s=231.356565 checksum=537302362780349984\nvariant=0 round=6 frames=1000000 passes=4 Mmsg/s=219.199005 checksum=537302362780349984\nvariant=0 median_Mmsg/s=235.778629 min=219.199005 max=244.490812\n"
+  },
+  {
+    "trial": 1,
+    "variant": "scalar-wide",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      431.042734,
+      491.56956,
+      691.99714,
+      622.664657,
+      596.407114,
+      512.913251,
+      532.244996
+    ],
+    "median": 532.244996,
+    "output": "variant=2 round=0 frames=4096 passes=1024 Mmsg/s=431.042734 checksum=13938605056126527488\nvariant=2 round=1 frames=4096 passes=1024 Mmsg/s=491.569560 checksum=13938605056126527488\nvariant=2 round=2 frames=4096 passes=1024 Mmsg/s=691.997140 checksum=13938605056126527488\nvariant=2 round=3 frames=4096 passes=1024 Mmsg/s=622.664657 checksum=13938605056126527488\nvariant=2 round=4 frames=4096 passes=1024 Mmsg/s=596.407114 checksum=13938605056126527488\nvariant=2 round=5 frames=4096 passes=1024 Mmsg/s=512.913251 checksum=13938605056126527488\nvariant=2 round=6 frames=4096 passes=1024 Mmsg/s=532.244996 checksum=13938605056126527488\nvariant=2 median_Mmsg/s=532.244996 min=431.042734 max=691.997140\n"
+  },
+  {
+    "trial": 1,
+    "variant": "aggregate",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      447.994053,
+      623.605056,
+      628.584463,
+      624.513149,
+      580.964822,
+      539.528812,
+      509.599929
+    ],
+    "median": 580.964822,
+    "output": "variant=1 round=0 frames=4096 passes=1024 Mmsg/s=447.994053 checksum=13938605056126527488\nvariant=1 round=1 frames=4096 passes=1024 Mmsg/s=623.605056 checksum=13938605056126527488\nvariant=1 round=2 frames=4096 passes=1024 Mmsg/s=628.584463 checksum=13938605056126527488\nvariant=1 round=3 frames=4096 passes=1024 Mmsg/s=624.513149 checksum=13938605056126527488\nvariant=1 round=4 frames=4096 passes=1024 Mmsg/s=580.964822 checksum=13938605056126527488\nvariant=1 round=5 frames=4096 passes=1024 Mmsg/s=539.528812 checksum=13938605056126527488\nvariant=1 round=6 frames=4096 passes=1024 Mmsg/s=509.599929 checksum=13938605056126527488\nvariant=1 median_Mmsg/s=580.964822 min=447.994053 max=628.584463\n"
+  },
+  {
+    "trial": 1,
+    "variant": "baseline",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      451.294111,
+      441.203762,
+      412.199473,
+      441.127011,
+      503.683504,
+      553.815212,
+      507.807981
+    ],
+    "median": 451.294111,
+    "output": "variant=0 round=0 frames=4096 passes=1024 Mmsg/s=451.294111 checksum=13938605056126527488\nvariant=0 round=1 frames=4096 passes=1024 Mmsg/s=441.203762 checksum=13938605056126527488\nvariant=0 round=2 frames=4096 passes=1024 Mmsg/s=412.199473 checksum=13938605056126527488\nvariant=0 round=3 frames=4096 passes=1024 Mmsg/s=441.127011 checksum=13938605056126527488\nvariant=0 round=4 frames=4096 passes=1024 Mmsg/s=503.683504 checksum=13938605056126527488\nvariant=0 round=5 frames=4096 passes=1024 Mmsg/s=553.815212 checksum=13938605056126527488\nvariant=0 round=6 frames=4096 passes=1024 Mmsg/s=507.807981 checksum=13938605056126527488\nvariant=0 median_Mmsg/s=451.294111 min=412.199473 max=553.815212\n"
+  },
+  {
+    "trial": 2,
+    "variant": "baseline",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      633.930476,
+      592.416489,
+      522.310923,
+      490.840129,
+      496.71345,
+      548.247441,
+      549.881982
+    ],
+    "median": 548.247441,
+    "output": "variant=0 round=0 frames=4096 passes=1024 Mmsg/s=633.930476 checksum=13938605056126527488\nvariant=0 round=1 frames=4096 passes=1024 Mmsg/s=592.416489 checksum=13938605056126527488\nvariant=0 round=2 frames=4096 passes=1024 Mmsg/s=522.310923 checksum=13938605056126527488\nvariant=0 round=3 frames=4096 passes=1024 Mmsg/s=490.840129 checksum=13938605056126527488\nvariant=0 round=4 frames=4096 passes=1024 Mmsg/s=496.713450 checksum=13938605056126527488\nvariant=0 round=5 frames=4096 passes=1024 Mmsg/s=548.247441 checksum=13938605056126527488\nvariant=0 round=6 frames=4096 passes=1024 Mmsg/s=549.881982 checksum=13938605056126527488\nvariant=0 median_Mmsg/s=548.247441 min=490.840129 max=633.930476\n"
+  },
+  {
+    "trial": 2,
+    "variant": "aggregate",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      679.128324,
+      660.576282,
+      630.779603,
+      609.425682,
+      580.610402,
+      628.877855,
+      649.329454
+    ],
+    "median": 630.779603,
+    "output": "variant=1 round=0 frames=4096 passes=1024 Mmsg/s=679.128324 checksum=13938605056126527488\nvariant=1 round=1 frames=4096 passes=1024 Mmsg/s=660.576282 checksum=13938605056126527488\nvariant=1 round=2 frames=4096 passes=1024 Mmsg/s=630.779603 checksum=13938605056126527488\nvariant=1 round=3 frames=4096 passes=1024 Mmsg/s=609.425682 checksum=13938605056126527488\nvariant=1 round=4 frames=4096 passes=1024 Mmsg/s=580.610402 checksum=13938605056126527488\nvariant=1 round=5 frames=4096 passes=1024 Mmsg/s=628.877855 checksum=13938605056126527488\nvariant=1 round=6 frames=4096 passes=1024 Mmsg/s=649.329454 checksum=13938605056126527488\nvariant=1 median_Mmsg/s=630.779603 min=580.610402 max=679.128324\n"
+  },
+  {
+    "trial": 2,
+    "variant": "scalar-wide",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      684.606832,
+      643.208682,
+      569.383686,
+      533.204716,
+      589.74514,
+      623.530243,
+      484.322271
+    ],
+    "median": 589.74514,
+    "output": "variant=2 round=0 frames=4096 passes=1024 Mmsg/s=684.606832 checksum=13938605056126527488\nvariant=2 round=1 frames=4096 passes=1024 Mmsg/s=643.208682 checksum=13938605056126527488\nvariant=2 round=2 frames=4096 passes=1024 Mmsg/s=569.383686 checksum=13938605056126527488\nvariant=2 round=3 frames=4096 passes=1024 Mmsg/s=533.204716 checksum=13938605056126527488\nvariant=2 round=4 frames=4096 passes=1024 Mmsg/s=589.745140 checksum=13938605056126527488\nvariant=2 round=5 frames=4096 passes=1024 Mmsg/s=623.530243 checksum=13938605056126527488\nvariant=2 round=6 frames=4096 passes=1024 Mmsg/s=484.322271 checksum=13938605056126527488\nvariant=2 median_Mmsg/s=589.745140 min=484.322271 max=684.606832\n"
+  },
+  {
+    "trial": 2,
+    "variant": "scalar-wide",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      219.123127,
+      215.265012,
+      183.441994,
+      227.305816,
+      189.186202,
+      228.838817,
+      235.744376
+    ],
+    "median": 219.123127,
+    "output": "variant=2 round=0 frames=1000000 passes=4 Mmsg/s=219.123127 checksum=537302362780349984\nvariant=2 round=1 frames=1000000 passes=4 Mmsg/s=215.265012 checksum=537302362780349984\nvariant=2 round=2 frames=1000000 passes=4 Mmsg/s=183.441994 checksum=537302362780349984\nvariant=2 round=3 frames=1000000 passes=4 Mmsg/s=227.305816 checksum=537302362780349984\nvariant=2 round=4 frames=1000000 passes=4 Mmsg/s=189.186202 checksum=537302362780349984\nvariant=2 round=5 frames=1000000 passes=4 Mmsg/s=228.838817 checksum=537302362780349984\nvariant=2 round=6 frames=1000000 passes=4 Mmsg/s=235.744376 checksum=537302362780349984\nvariant=2 median_Mmsg/s=219.123127 min=183.441994 max=235.744376\n"
+  },
+  {
+    "trial": 2,
+    "variant": "baseline",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      227.798917,
+      216.429475,
+      241.263138,
+      253.121719,
+      234.849851,
+      248.671473,
+      235.086122
+    ],
+    "median": 235.086122,
+    "output": "variant=0 round=0 frames=1000000 passes=4 Mmsg/s=227.798917 checksum=537302362780349984\nvariant=0 round=1 frames=1000000 passes=4 Mmsg/s=216.429475 checksum=537302362780349984\nvariant=0 round=2 frames=1000000 passes=4 Mmsg/s=241.263138 checksum=537302362780349984\nvariant=0 round=3 frames=1000000 passes=4 Mmsg/s=253.121719 checksum=537302362780349984\nvariant=0 round=4 frames=1000000 passes=4 Mmsg/s=234.849851 checksum=537302362780349984\nvariant=0 round=5 frames=1000000 passes=4 Mmsg/s=248.671473 checksum=537302362780349984\nvariant=0 round=6 frames=1000000 passes=4 Mmsg/s=235.086122 checksum=537302362780349984\nvariant=0 median_Mmsg/s=235.086122 min=216.429475 max=253.121719\n"
+  },
+  {
+    "trial": 2,
+    "variant": "aggregate",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      263.268849,
+      242.455189,
+      246.941445,
+      247.899593,
+      243.019065,
+      241.007106,
+      236.374907
+    ],
+    "median": 243.019065,
+    "output": "variant=1 round=0 frames=1000000 passes=4 Mmsg/s=263.268849 checksum=537302362780349984\nvariant=1 round=1 frames=1000000 passes=4 Mmsg/s=242.455189 checksum=537302362780349984\nvariant=1 round=2 frames=1000000 passes=4 Mmsg/s=246.941445 checksum=537302362780349984\nvariant=1 round=3 frames=1000000 passes=4 Mmsg/s=247.899593 checksum=537302362780349984\nvariant=1 round=4 frames=1000000 passes=4 Mmsg/s=243.019065 checksum=537302362780349984\nvariant=1 round=5 frames=1000000 passes=4 Mmsg/s=241.007106 checksum=537302362780349984\nvariant=1 round=6 frames=1000000 passes=4 Mmsg/s=236.374907 checksum=537302362780349984\nvariant=1 median_Mmsg/s=243.019065 min=236.374907 max=263.268849\n"
+  },
+  {
+    "trial": 3,
+    "variant": "scalar-wide",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      243.038984,
+      250.415047,
+      249.209958,
+      255.222148,
+      257.950469,
+      263.090841,
+      248.426606
+    ],
+    "median": 250.415047,
+    "output": "variant=2 round=0 frames=1000000 passes=4 Mmsg/s=243.038984 checksum=537302362780349984\nvariant=2 round=1 frames=1000000 passes=4 Mmsg/s=250.415047 checksum=537302362780349984\nvariant=2 round=2 frames=1000000 passes=4 Mmsg/s=249.209958 checksum=537302362780349984\nvariant=2 round=3 frames=1000000 passes=4 Mmsg/s=255.222148 checksum=537302362780349984\nvariant=2 round=4 frames=1000000 passes=4 Mmsg/s=257.950469 checksum=537302362780349984\nvariant=2 round=5 frames=1000000 passes=4 Mmsg/s=263.090841 checksum=537302362780349984\nvariant=2 round=6 frames=1000000 passes=4 Mmsg/s=248.426606 checksum=537302362780349984\nvariant=2 median_Mmsg/s=250.415047 min=243.038984 max=263.090841\n"
+  },
+  {
+    "trial": 3,
+    "variant": "aggregate",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      234.729786,
+      234.241793,
+      224.344094,
+      252.207525,
+      247.899885,
+      267.777354,
+      243.792732
+    ],
+    "median": 243.792732,
+    "output": "variant=1 round=0 frames=1000000 passes=4 Mmsg/s=234.729786 checksum=537302362780349984\nvariant=1 round=1 frames=1000000 passes=4 Mmsg/s=234.241793 checksum=537302362780349984\nvariant=1 round=2 frames=1000000 passes=4 Mmsg/s=224.344094 checksum=537302362780349984\nvariant=1 round=3 frames=1000000 passes=4 Mmsg/s=252.207525 checksum=537302362780349984\nvariant=1 round=4 frames=1000000 passes=4 Mmsg/s=247.899885 checksum=537302362780349984\nvariant=1 round=5 frames=1000000 passes=4 Mmsg/s=267.777354 checksum=537302362780349984\nvariant=1 round=6 frames=1000000 passes=4 Mmsg/s=243.792732 checksum=537302362780349984\nvariant=1 median_Mmsg/s=243.792732 min=224.344094 max=267.777354\n"
+  },
+  {
+    "trial": 3,
+    "variant": "baseline",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      222.924633,
+      258.592295,
+      263.147109,
+      260.276277,
+      237.779162,
+      246.971863,
+      230.521057
+    ],
+    "median": 246.971863,
+    "output": "variant=0 round=0 frames=1000000 passes=4 Mmsg/s=222.924633 checksum=537302362780349984\nvariant=0 round=1 frames=1000000 passes=4 Mmsg/s=258.592295 checksum=537302362780349984\nvariant=0 round=2 frames=1000000 passes=4 Mmsg/s=263.147109 checksum=537302362780349984\nvariant=0 round=3 frames=1000000 passes=4 Mmsg/s=260.276277 checksum=537302362780349984\nvariant=0 round=4 frames=1000000 passes=4 Mmsg/s=237.779162 checksum=537302362780349984\nvariant=0 round=5 frames=1000000 passes=4 Mmsg/s=246.971863 checksum=537302362780349984\nvariant=0 round=6 frames=1000000 passes=4 Mmsg/s=230.521057 checksum=537302362780349984\nvariant=0 median_Mmsg/s=246.971863 min=222.924633 max=263.147109\n"
+  },
+  {
+    "trial": 3,
+    "variant": "scalar-wide",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      559.385451,
+      477.037007,
+      484.146394,
+      518.897498,
+      531.05564,
+      551.740976,
+      525.605562
+    ],
+    "median": 525.605562,
+    "output": "variant=2 round=0 frames=4096 passes=1024 Mmsg/s=559.385451 checksum=13938605056126527488\nvariant=2 round=1 frames=4096 passes=1024 Mmsg/s=477.037007 checksum=13938605056126527488\nvariant=2 round=2 frames=4096 passes=1024 Mmsg/s=484.146394 checksum=13938605056126527488\nvariant=2 round=3 frames=4096 passes=1024 Mmsg/s=518.897498 checksum=13938605056126527488\nvariant=2 round=4 frames=4096 passes=1024 Mmsg/s=531.055640 checksum=13938605056126527488\nvariant=2 round=5 frames=4096 passes=1024 Mmsg/s=551.740976 checksum=13938605056126527488\nvariant=2 round=6 frames=4096 passes=1024 Mmsg/s=525.605562 checksum=13938605056126527488\nvariant=2 median_Mmsg/s=525.605562 min=477.037007 max=559.385451\n"
+  },
+  {
+    "trial": 3,
+    "variant": "aggregate",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      534.353823,
+      592.831304,
+      610.68247,
+      614.32213,
+      633.958933,
+      550.363031,
+      594.386951
+    ],
+    "median": 594.386951,
+    "output": "variant=1 round=0 frames=4096 passes=1024 Mmsg/s=534.353823 checksum=13938605056126527488\nvariant=1 round=1 frames=4096 passes=1024 Mmsg/s=592.831304 checksum=13938605056126527488\nvariant=1 round=2 frames=4096 passes=1024 Mmsg/s=610.682470 checksum=13938605056126527488\nvariant=1 round=3 frames=4096 passes=1024 Mmsg/s=614.322130 checksum=13938605056126527488\nvariant=1 round=4 frames=4096 passes=1024 Mmsg/s=633.958933 checksum=13938605056126527488\nvariant=1 round=5 frames=4096 passes=1024 Mmsg/s=550.363031 checksum=13938605056126527488\nvariant=1 round=6 frames=4096 passes=1024 Mmsg/s=594.386951 checksum=13938605056126527488\nvariant=1 median_Mmsg/s=594.386951 min=534.353823 max=633.958933\n"
+  },
+  {
+    "trial": 3,
+    "variant": "baseline",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      505.929891,
+      513.472033,
+      533.663534,
+      556.635627,
+      591.943519,
+      561.961626,
+      599.101042
+    ],
+    "median": 556.635627,
+    "output": "variant=0 round=0 frames=4096 passes=1024 Mmsg/s=505.929891 checksum=13938605056126527488\nvariant=0 round=1 frames=4096 passes=1024 Mmsg/s=513.472033 checksum=13938605056126527488\nvariant=0 round=2 frames=4096 passes=1024 Mmsg/s=533.663534 checksum=13938605056126527488\nvariant=0 round=3 frames=4096 passes=1024 Mmsg/s=556.635627 checksum=13938605056126527488\nvariant=0 round=4 frames=4096 passes=1024 Mmsg/s=591.943519 checksum=13938605056126527488\nvariant=0 round=5 frames=4096 passes=1024 Mmsg/s=561.961626 checksum=13938605056126527488\nvariant=0 round=6 frames=4096 passes=1024 Mmsg/s=599.101042 checksum=13938605056126527488\nvariant=0 median_Mmsg/s=556.635627 min=505.929891 max=599.101042\n"
+  },
+  {
+    "trial": 4,
+    "variant": "baseline",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      523.40384,
+      471.982275,
+      447.317802,
+      425.782392,
+      441.181114,
+      516.152723,
+      513.8642
+    ],
+    "median": 471.982275,
+    "output": "variant=0 round=0 frames=4096 passes=1024 Mmsg/s=523.403840 checksum=13938605056126527488\nvariant=0 round=1 frames=4096 passes=1024 Mmsg/s=471.982275 checksum=13938605056126527488\nvariant=0 round=2 frames=4096 passes=1024 Mmsg/s=447.317802 checksum=13938605056126527488\nvariant=0 round=3 frames=4096 passes=1024 Mmsg/s=425.782392 checksum=13938605056126527488\nvariant=0 round=4 frames=4096 passes=1024 Mmsg/s=441.181114 checksum=13938605056126527488\nvariant=0 round=5 frames=4096 passes=1024 Mmsg/s=516.152723 checksum=13938605056126527488\nvariant=0 round=6 frames=4096 passes=1024 Mmsg/s=513.864200 checksum=13938605056126527488\nvariant=0 median_Mmsg/s=471.982275 min=425.782392 max=523.403840\n"
+  },
+  {
+    "trial": 4,
+    "variant": "scalar-wide",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      595.804415,
+      578.543522,
+      621.473387,
+      687.554526,
+      675.8735,
+      667.645618,
+      621.492541
+    ],
+    "median": 621.492541,
+    "output": "variant=2 round=0 frames=4096 passes=1024 Mmsg/s=595.804415 checksum=13938605056126527488\nvariant=2 round=1 frames=4096 passes=1024 Mmsg/s=578.543522 checksum=13938605056126527488\nvariant=2 round=2 frames=4096 passes=1024 Mmsg/s=621.473387 checksum=13938605056126527488\nvariant=2 round=3 frames=4096 passes=1024 Mmsg/s=687.554526 checksum=13938605056126527488\nvariant=2 round=4 frames=4096 passes=1024 Mmsg/s=675.873500 checksum=13938605056126527488\nvariant=2 round=5 frames=4096 passes=1024 Mmsg/s=667.645618 checksum=13938605056126527488\nvariant=2 round=6 frames=4096 passes=1024 Mmsg/s=621.492541 checksum=13938605056126527488\nvariant=2 median_Mmsg/s=621.492541 min=578.543522 max=687.554526\n"
+  },
+  {
+    "trial": 4,
+    "variant": "aggregate",
+    "frames": 4096,
+    "passes": 1024,
+    "rates": [
+      569.614195,
+      523.809958,
+      498.30033,
+      450.204343,
+      493.349324,
+      541.615428,
+      575.571729
+    ],
+    "median": 523.809958,
+    "output": "variant=1 round=0 frames=4096 passes=1024 Mmsg/s=569.614195 checksum=13938605056126527488\nvariant=1 round=1 frames=4096 passes=1024 Mmsg/s=523.809958 checksum=13938605056126527488\nvariant=1 round=2 frames=4096 passes=1024 Mmsg/s=498.300330 checksum=13938605056126527488\nvariant=1 round=3 frames=4096 passes=1024 Mmsg/s=450.204343 checksum=13938605056126527488\nvariant=1 round=4 frames=4096 passes=1024 Mmsg/s=493.349324 checksum=13938605056126527488\nvariant=1 round=5 frames=4096 passes=1024 Mmsg/s=541.615428 checksum=13938605056126527488\nvariant=1 round=6 frames=4096 passes=1024 Mmsg/s=575.571729 checksum=13938605056126527488\nvariant=1 median_Mmsg/s=523.809958 min=450.204343 max=575.571729\n"
+  },
+  {
+    "trial": 4,
+    "variant": "baseline",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      246.232822,
+      235.05305,
+      229.585383,
+      246.281503,
+      276.577642,
+      281.29508,
+      282.80571
+    ],
+    "median": 246.281503,
+    "output": "variant=0 round=0 frames=1000000 passes=4 Mmsg/s=246.232822 checksum=537302362780349984\nvariant=0 round=1 frames=1000000 passes=4 Mmsg/s=235.053050 checksum=537302362780349984\nvariant=0 round=2 frames=1000000 passes=4 Mmsg/s=229.585383 checksum=537302362780349984\nvariant=0 round=3 frames=1000000 passes=4 Mmsg/s=246.281503 checksum=537302362780349984\nvariant=0 round=4 frames=1000000 passes=4 Mmsg/s=276.577642 checksum=537302362780349984\nvariant=0 round=5 frames=1000000 passes=4 Mmsg/s=281.295080 checksum=537302362780349984\nvariant=0 round=6 frames=1000000 passes=4 Mmsg/s=282.805710 checksum=537302362780349984\nvariant=0 median_Mmsg/s=246.281503 min=229.585383 max=282.805710\n"
+  },
+  {
+    "trial": 4,
+    "variant": "scalar-wide",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      253.165198,
+      236.253739,
+      244.757269,
+      238.627221,
+      231.127327,
+      242.011693,
+      249.271085
+    ],
+    "median": 242.011693,
+    "output": "variant=2 round=0 frames=1000000 passes=4 Mmsg/s=253.165198 checksum=537302362780349984\nvariant=2 round=1 frames=1000000 passes=4 Mmsg/s=236.253739 checksum=537302362780349984\nvariant=2 round=2 frames=1000000 passes=4 Mmsg/s=244.757269 checksum=537302362780349984\nvariant=2 round=3 frames=1000000 passes=4 Mmsg/s=238.627221 checksum=537302362780349984\nvariant=2 round=4 frames=1000000 passes=4 Mmsg/s=231.127327 checksum=537302362780349984\nvariant=2 round=5 frames=1000000 passes=4 Mmsg/s=242.011693 checksum=537302362780349984\nvariant=2 round=6 frames=1000000 passes=4 Mmsg/s=249.271085 checksum=537302362780349984\nvariant=2 median_Mmsg/s=242.011693 min=231.127327 max=253.165198\n"
+  },
+  {
+    "trial": 4,
+    "variant": "aggregate",
+    "frames": 1000000,
+    "passes": 4,
+    "rates": [
+      258.690229,
+      261.588176,
+      240.458357,
+      240.628874,
+      241.114043,
+      227.53755,
+      195.380129
+    ],
+    "median": 240.628874,
+    "output": "variant=1 round=0 frames=1000000 passes=4 Mmsg/s=258.690229 checksum=537302362780349984\nvariant=1 round=1 frames=1000000 passes=4 Mmsg/s=261.588176 checksum=537302362780349984\nvariant=1 round=2 frames=1000000 passes=4 Mmsg/s=240.458357 checksum=537302362780349984\nvariant=1 round=3 frames=1000000 passes=4 Mmsg/s=240.628874 checksum=537302362780349984\nvariant=1 round=4 frames=1000000 passes=4 Mmsg/s=241.114043 checksum=537302362780349984\nvariant=1 round=5 frames=1000000 passes=4 Mmsg/s=227.537550 checksum=537302362780349984\nvariant=1 round=6 frames=1000000 passes=4 Mmsg/s=195.380129 checksum=537302362780349984\nvariant=1 median_Mmsg/s=240.628874 min=195.380129 max=261.588176\n"
+  }
+]
