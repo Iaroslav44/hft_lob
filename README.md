@@ -6,12 +6,16 @@ A C++20 market data hot path: decode NASDAQ ITCH 5.0 Add Order messages, transfe
 
 | File | Responsibility |
 |---|---|
-| `src/platform.h` | Spin hints, endian-safe loads and stores, aligned allocation and page prefaulting |
-| `src/spsc_queue.h` | Bounded SPSC queue with in-place production, explicit batch publication and bulk consumption |
-| `src/itch_parser.h` | ITCH type A wire layout and 32-byte normalised messages |
-| `src/order_book.h` | Order pool, per-price FIFO queues, removal and partial execution by slot |
+| `src/nexus/core/platform.h` | Spin hints, endian-safe loads and stores, aligned allocation and page prefaulting |
+| `src/nexus/core/spsc_queue.h` | Bounded SPSC queue with in-place production, explicit batch publication and bulk consumption |
+| `src/nexus/core/disruptor.h` | SPSC sequence ring with blocking reservation and modular availability checks |
+| `src/nexus/md/itch_parser.h` | ITCH type A wire layout and 32-byte normalised messages |
+| `src/nexus/md/order_book.h` | Order pool, per-price FIFO queues, removal and partial execution by slot |
+| `src/nexus/hw/cxl_shared_memory.h` | Checked atomic host-memory writes and CPU cache write-back; device protocol supplied by the caller |
 | `src/main.cpp` | Two-thread synthetic throughput benchmark with complete result validation |
 | `tests/test_main.cpp` | Boundary, concurrency and regression checks |
+| `tests/stress_test.cpp` | Concurrent slot reuse, checked thread startup and model-based FIFO churn |
+| `tests/test_disruptor.cpp`, `tests/test_cxl.cpp` | Sequence rollover, publication, reclamation and shared-memory boundary regressions |
 | `tests/check_cli.cmake` | Exact exit-status and diagnostic checks for rejected CLI arguments |
 | `benchmarks/compare.py` | Sequential, shuffled throughput comparisons with raw results and binary hashes |
 
@@ -40,29 +44,33 @@ The optional third argument is the maximum publication batch size. It defaults t
 
 ## Sanitizers and validation
 
-Sanitizers instrument both tests and the benchmark. Keep their build directories separate:
+Every test group has separate `_asan` (ASan + UBSan), `_ubsan` and `_tsan`
+executables in the same build. Their runtimes are never linked together. The
+throughput benchmark remains uninstrumented. For a Debug sanitizer run:
 
 ```bash
-cmake -S . -B build-san -DCMAKE_BUILD_TYPE=Debug -DHFT_SANITIZE=ON
+cmake -S . -B build-san -DCMAKE_BUILD_TYPE=Debug -DHFT_LTO=OFF
 cmake --build build-san -j
 ctest --test-dir build-san --output-on-failure
-
-cmake -S . -B build-tsan -DCMAKE_BUILD_TYPE=Debug -DHFT_TSAN=ON
-cmake --build build-tsan -j
-ctest --test-dir build-tsan --output-on-failure
 ```
 
-`HFT_SANITIZE` enables ASan and UBSan; `HFT_TSAN` enables ThreadSanitizer. These configurations are mutually exclusive and disable LTO. Test checks remain active in Release builds. CTest timeouts detect stalled concurrent tests.
+The former `HFT_SANITIZE` and `HFT_TSAN` configuration options are no longer used.
+Test checks remain active in Release builds. CTest timeouts detect stalled
+concurrent tests.
 
-If an older TSan runtime exits before main with `unexpected memory mapping` under WSL, an x86-64 test run can disable ASLR for that process and its children:
+When `setarch` is available, CTest runs ASan and TSan executables with process-local
+ASLR disabled. This handles address-space collisions in older runtimes under
+WSL, including a reproduced Clang 14 ASan startup fault. It does not change
+system-wide settings or suppress failures. A sanitizer runtime failure before
+the test starts is not a successful test run.
 
-```bash
-setarch x86_64 -R ctest --test-dir build-tsan --output-on-failure
-```
+Current validation on 11 October 2026: GCC Release/native/LTO and Clang
+Release/portable each passed 28/28 CTest cases; GCC Debug ASan+UBSan passed all
+four instrumented test groups. Proof obligations, counterexamples, precise scope
+and commands are recorded in [CONCURRENCY_AUDIT.md](CONCURRENCY_AUDIT.md).
 
-This does not change system-wide settings. A sanitizer runtime failure before the test starts is not a successful test run.
-
-Validation recorded on 10 October 2026, Ubuntu WSL2, x86-64:
+Historical validation before the module reorganisation, recorded on 10 October
+2026, Ubuntu WSL2, x86-64:
 
 | Configuration | CTest result |
 |---|---|
@@ -85,6 +93,8 @@ Fault injection into the second `pthread_create` call with `EAGAIN` and CPU affi
 - Explicit batches amortise publication traffic but delay visibility until the batch is complete. Batch size is a throughput/latency policy decision; single-message publication remains available.
 
 ## ITCH decoding
+
+The host ITCH decoder described below is separate from the FPGA header extractors.
 
 The message layout follows section 1.3.1 of the [Nasdaq TotalView-ITCH 5.0 specification](https://nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHSpecification.pdf): 36 bytes, big-endian fields, a 48-bit timestamp, and prices in units of 0.0001.
 
@@ -109,7 +119,59 @@ The parser validates the pointer, available length, message type A, side B/S and
 
 `head(price, side)` and `tail(price, side)` expose each level's FIFO endpoints. `remove_order(slot)` removes an order; `execute_order(slot, qty)` reduces its quantity and releases the slot on full execution. Zero and excessive execution quantities are rejected. Released slots are reused, so callers must discard stale indices.
 
-Instrument routing, order-ID uniqueness and the exchange-ID-to-slot map belong to the caller. The project does not include network transport, sequence-gap recovery, decoders for other ITCH message types, best-price discovery or a matching engine. The book supplies order storage and direct price-level access, owned by one thread.
+Instrument routing, order-ID uniqueness and the exchange-ID-to-slot map belong to the caller. The host pipeline does not include network transport, sequence-gap recovery, decoders for other ITCH message types, best-price discovery or a matching engine. Optional FPGA integration components do not change the host benchmark's input source. The book supplies order storage and direct price-level access, owned by one thread.
+
+## FPGA integration and verification
+
+The reusable `nexus_mold_ingress` component accepts validated UDP payloads,
+quarantines and validates complete MoldUDP64 packets, enforces session/sequence
+admission, and emits canonical 32-byte ITCH Add Order records. It supports
+backpressure and requires an external MAC/UDP/DMA shell. A single packet buffer
+and serialized replay bound storage but do not provide a line-rate guarantee.
+
+The `nexus_tcp_ip_stack` HLS top connects Ethernet frame admission, ARP, IPv4,
+ICMP Echo, the ETH TCP engine and an internal 64-session table. It exposes real
+TCP application and RX/TX memory interfaces; MAC/PHY and memory controllers remain
+board services. Its fixed profile is 64 bits at 156.25 MHz, IPv4 MTU 1500, without
+VLANs, IP options, fragmentation, IPv6 or UDP. The receive guard buffers a complete
+frame before protocol admission, so no line-rate or latency guarantee is claimed.
+The separate Mold ingress still requires a UDP provider.
+
+Pinned ETH HLS TCP and Vitis Security AES-256-GCM sources replace the former
+TCP/RTO/XOR demonstrations. Taxi supplies the optional stream CDC integration;
+LitePCIe and alternative NIC/accelerator platforms have explicit source profiles.
+The original `nexus_network_stack_top` is retained only as a loopback fixture.
+See [FPGA_INTEGRATION.md](FPGA_INTEGRATION.md) for interfaces, dependency licenses,
+source retrieval, reset/recovery contracts and enclosing-system requirements.
+
+This integration revision was prepared without builds, runs, simulations, lint,
+synthesis or formal execution, as requested. The results below are historical;
+they do not validate the newly added components. The earlier audit is preserved
+in [FPGA_AUDIT.md](FPGA_AUDIT.md).
+
+Enable the portable verification suite explicitly:
+
+```bash
+cmake -S . -B build-fpga -DCMAKE_BUILD_TYPE=Release -DHFT_FPGA_TESTS=ON
+cmake --build build-fpga -j4
+ctest --test-dir build-fpga --output-on-failure
+python3 tests/rtl/run_tests.py --build-dir build-fpga-synthesis --synth
+```
+
+Simulation requires Python 3, Icarus Verilog and vvp; optional generic synthesis
+requires Yosys. The runner supports installed tools and the local `.tools/`
+directory, logs source hashes, and fails if required tools or simulation success
+markers are missing. On 11 October 2026, the integrated GCC Release/LTO suite
+passed 30/30 tests; both RTL benches and generic synthesis of all eight modules
+passed in the pre-integration revision. This does not establish Vivado timing
+closure or board-level correctness. New optional cocotb regressions and formal
+prove/cover harnesses are documented in
+[docs/FPGA_VERIFICATION.md](docs/FPGA_VERIFICATION.md); they have not been run.
+
+`HFT_FPGA_TOOLING=ON` exposes explicit `fpga_sources`, `fpga_tcp_ip`, `fpga_cocotb`
+and `fpga_formal` targets. These targets do not run during the default build and do not
+install drivers or enable device access. The integration recipes also work from
+an enclosing Vivado/FuseSoC project without using the host benchmark's CMake flow.
 
 ## Benchmark interpretation
 

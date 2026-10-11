@@ -1,0 +1,21 @@
+[tasks]
+prove
+cover
+
+[options]
+prove: mode prove
+cover: mode cover
+depth 32
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv feed_line_arbitrator.sv arbiter_formal.sv
+prep -top arbiter_formal
+async2sync
+dffunmap
+
+[files]
+../../../src/nexus/fpga/feed_line_arbitrator.sv
+arbiter_formal.sv

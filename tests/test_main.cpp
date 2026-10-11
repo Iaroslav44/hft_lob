@@ -10,9 +10,9 @@
 #include <stdexcept>
 #include <thread>
 
-#include "itch_parser.h"
-#include "order_book.h"
-#include "spsc_queue.h"
+#include "nexus/md/itch_parser.h"
+#include "nexus/md/order_book.h"
+#include "nexus/core/spsc_queue.h"
 
 namespace {
 

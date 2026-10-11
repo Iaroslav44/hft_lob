@@ -1,0 +1,15 @@
+CAPI=2:
+name: nexus:hft:market_data:0.1.0
+description: Committed MoldUDP64 ingress and ITCH Add Order normalization
+filesets:
+  rtl:
+    file_type: systemVerilogSource
+    files:
+      - src/nexus/fpga/market_data/moldudp64_packet_buffer.sv
+      - src/nexus/fpga/market_data/itch_a_normalizer.sv
+      - src/nexus/fpga/mold_session_gate.sv
+      - src/nexus/fpga/nexus_mold_ingress.sv
+targets:
+  default:
+    filesets: [rtl]
+    toplevel: nexus_mold_ingress

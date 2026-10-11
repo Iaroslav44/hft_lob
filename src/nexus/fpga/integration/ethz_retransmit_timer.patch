@@ -1,0 +1,14 @@
+--- a/hls/toe/retransmit_timer/retransmit_timer.cpp
++++ b/hls/toe/retransmit_timer/retransmit_timer.cpp
+@@ -107,6 +107,11 @@
+ 			operationSwitch = 1;
+ 			if (set.sessionID-3 < rt_position && rt_position <= set.sessionID)
+ 			{
+ 				rt_position += 5;
++				// Keep the next scan inside the table after skipping a write hazard.
++				if (rt_position >= MAX_SESSIONS)
++				{
++					rt_position -= MAX_SESSIONS;
++				}
+ 			}
+ 		}

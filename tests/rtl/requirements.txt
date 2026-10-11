@@ -1,0 +1,2 @@
+cocotb==2.1.0
+cocotbext-axi==0.1.28

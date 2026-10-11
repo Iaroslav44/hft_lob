@@ -1,0 +1,24 @@
+[tasks]
+prove
+cover
+
+[options]
+prove: mode prove
+cover: mode cover
+depth 32
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv hft_network_stack.sv nasdaq_itch_moldudp64.sv cme_sbe_parser.sv metadata_formal.sv
+chparam -set KIND 0 metadata_formal
+prep -top metadata_formal
+async2sync
+dffunmap
+
+[files]
+../../../src/nexus/fpga/hft_network_stack.sv
+../../../src/nexus/fpga/nasdaq_itch_moldudp64.sv
+../../../src/nexus/fpga/cme_sbe_parser.sv
+metadata_formal.sv

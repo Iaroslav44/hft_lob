@@ -1,0 +1,19 @@
+[tasks]
+prove
+cover
+
+[options]
+prove: mode prove
+cover: mode cover
+depth 32
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv mold_session_gate.sv session_gate_formal.sv
+prep -top session_gate_formal
+
+[files]
+../../../src/nexus/fpga/mold_session_gate.sv
+session_gate_formal.sv

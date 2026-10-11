@@ -1,0 +1,19 @@
+[tasks]
+prove
+cover
+
+[options]
+prove: mode prove
+cover: mode cover
+depth 32
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv nexus_network_stack_top.sv loopback_formal.sv
+prep -top loopback_formal
+
+[files]
+../../../src/nexus/fpga/nexus_network_stack_top.sv
+loopback_formal.sv

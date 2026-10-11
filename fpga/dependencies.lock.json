@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "checked_on": "2026-10-11",
+  "profiles": {
+    "core": ["eth_network_stack", "taxi", "vitis_security"],
+    "dma": ["litepcie"],
+    "nic_references": ["corundum", "open_nic"],
+    "accelerators": ["coyote", "conifer", "treelut"]
+  },
+  "dependencies": {
+    "eth_network_stack": {
+      "url": "https://github.com/fpgasystems/fpga-network-stack.git",
+      "commit": "75c32bae73f5c336b5c46c9de35ae0cb9cb7cc1c",
+      "license": "BSD-3-Clause",
+      "role": "Integrated Ethernet/IPv4/TCP HLS endpoint and standalone TOE adapter; MAC/PHY and memory controllers remain external",
+      "sparse_paths": []
+    },
+    "taxi": {
+      "url": "https://github.com/fpganinja/taxi.git",
+      "commit": "cc70b270b910d369ab1ad7b3855e76399fd461f1",
+      "license": "CERN-OHL-S-2.0 OR commercial; inspect individual files",
+      "role": "AXI-stream CDC adapter; Ethernet, PTP and Zircon integration sources",
+      "sparse_paths": []
+    },
+    "vitis_security": {
+      "url": "https://github.com/Xilinx/Vitis_Libraries.git",
+      "commit": "86459b4c4d57f14c6b979ecf078e9ab30deb5576",
+      "license": "Apache-2.0",
+      "role": "AES-GCM encryption kernel and upstream reference tests",
+      "sparse_paths": ["security/L1/include", "security/L1/tests/gcm"]
+    },
+    "litepcie": {
+      "url": "https://github.com/enjoy-digital/litepcie.git",
+      "commit": "1f32f8cd0462c2f65766ba35eca329eb3dca373d",
+      "license": "BSD-2-Clause core; inspect kernel driver licensing separately",
+      "role": "Optional board-shell PCIe/DMA provider; no driver is installed automatically",
+      "sparse_paths": []
+    },
+    "corundum": {
+      "url": "https://github.com/corundum/corundum.git",
+      "commit": "1ca0151b97af85aa5dd306d74b6bcec65904d2ce",
+      "license": "BSD-2-Clause-Views core; component licenses apply",
+      "role": "Optional complete NIC shell reference; not composed with LitePCIe by default",
+      "sparse_paths": []
+    },
+    "open_nic": {
+      "url": "https://github.com/Xilinx/open-nic-shell.git",
+      "commit": "940907fc99fc8d73dbea0028b3a23095a660a42a",
+      "license": "Apache-2.0 shell; AMD IP licenses are separate",
+      "role": "Alternative QDMA/CMAC shell reference with whole-packet buffering",
+      "sparse_paths": []
+    },
+    "coyote": {
+      "url": "https://github.com/fpgasystems/Coyote.git",
+      "commit": "b609b6fcb85db39b23858a7868b713ffd110db25",
+      "license": "MIT except GPL-2.0 driver; component licenses apply",
+      "role": "Optional RDMA and FPGA/GPU peer-to-peer platform reference",
+      "sparse_paths": []
+    },
+    "conifer": {
+      "url": "https://github.com/thesps/conifer.git",
+      "commit": "29b60872bfa94d182637280355c1d993b8742050",
+      "license": "Apache-2.0 except separately licensed CERN-OHL-P FPU",
+      "role": "Optional fixed-point tree-model export; no trained model is supplied",
+      "sparse_paths": []
+    },
+    "treelut": {
+      "url": "https://github.com/kiabuzz/TreeLUT.git",
+      "commit": "ad9e70a9ba1a74ccf8df97a3f7fcdc9137e68b21",
+      "license": "MIT",
+      "role": "Optional LUT-based XGBoost research reference",
+      "sparse_paths": []
+    }
+  }
+}
