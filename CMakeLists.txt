@@ -122,7 +122,8 @@ add_executable(stress_test_ubsan tests/stress_test.cpp)
 target_link_libraries(stress_test_ubsan PRIVATE hft_core_ubsan)
 
 # Boundary regressions exercise the same source under each existing runtime.
-foreach(component IN ITEMS disruptor cxl)
+set(hft_boundary_components disruptor cxl flat_order_map)
+foreach(component IN LISTS hft_boundary_components)
   add_executable(hft_${component}_tests tests/test_${component}.cpp)
   target_link_libraries(hft_${component}_tests PRIVATE hft_core)
   foreach(sanitizer IN ITEMS asan tsan ubsan)
@@ -188,7 +189,7 @@ if(BUILD_TESTING)
   add_test(NAME hft_tests_tsan COMMAND ${SANITIZER_WRAPPER} "$<TARGET_FILE:hft_tests_tsan>")
   set_tests_properties(hft_tests_asan hft_tests_ubsan hft_tests_tsan PROPERTIES TIMEOUT 120)
 
-  foreach(component IN ITEMS disruptor cxl)
+  foreach(component IN LISTS hft_boundary_components)
     add_test(NAME hft_${component}_tests COMMAND hft_${component}_tests)
     set_tests_properties(hft_${component}_tests PROPERTIES TIMEOUT 120)
     foreach(sanitizer IN ITEMS asan ubsan tsan)
