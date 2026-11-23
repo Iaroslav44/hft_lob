@@ -122,7 +122,7 @@ add_executable(stress_test_ubsan tests/stress_test.cpp)
 target_link_libraries(stress_test_ubsan PRIVATE hft_core_ubsan)
 
 # Boundary regressions exercise the same source under each existing runtime.
-set(hft_boundary_components disruptor cxl flat_order_map)
+set(hft_boundary_components disruptor cxl flat_order_map vwap)
 foreach(component IN LISTS hft_boundary_components)
   add_executable(hft_${component}_tests tests/test_${component}.cpp)
   target_link_libraries(hft_${component}_tests PRIVATE hft_core)
